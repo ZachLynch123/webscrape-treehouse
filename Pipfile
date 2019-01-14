@@ -8,6 +8,8 @@ pylint = "*"
 
 [packages]
 beautifulsoup4 = "*"
+scrapy = "*"
+twisted = "*"
 
 [requires]
 python_version = "3.7"
