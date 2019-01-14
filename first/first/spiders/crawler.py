@@ -1,0 +1,22 @@
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+
+class HorseSpider(CrawlSpider):
+
+    name = 'Marth'
+
+    allow_domains = ['treehouse-projects.github.io']
+
+    start_urls = ['https://treehouse-projects.github.io/horse-land']
+
+    rules = [Rule(LinkExtractor(allow=r'.*'),
+    callback='parse_horses',
+    follow=True)]
+
+    def parse_horses(self, res):
+        url = res.url
+        title = res.css('title::text').extract()
+        print('Page URL: {}'.format(url))
+        print('Page Title: {}'.format(title))
+
+
